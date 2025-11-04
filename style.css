@@ -1,0 +1,34 @@
+.game-list {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
+  background: #1a1a2e;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.game-block {
+  background-color: rgba(255,255,255,0.05);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.game-block h3 {
+  color: #00ffff;
+}
+
+.game-block a button {
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #00ffff, #ff00cc);
+  border: none;
+  border-radius: 8px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.game-block a button:hover {
+  background: linear-gradient(90deg, #ff00cc, #00ffff);
+  color: white;
+}
