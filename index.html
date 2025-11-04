@@ -2,8 +2,7 @@
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>shorkari Bench PC Game Store</title>
+  <title>🎮SHOKARI BENCH PC GAME STORE</title>
   <style>
     body {
       margin: 0;
@@ -13,7 +12,6 @@
       display: flex;
     }
 
-    /* Sidebar */
     .sidebar {
       width: 250px;
       background: #111;
@@ -35,7 +33,6 @@
       font-size: 16px;
     }
 
-    /* Header */
     .header {
       width: 100%;
       text-align: center;
@@ -56,7 +53,6 @@
       100% { color: red; }
     }
 
-    /* Login Box */
     .login-box {
       margin: auto;
       background: #1a1a1a;
@@ -87,7 +83,6 @@
       cursor: pointer;
     }
 
-    /* Main content */
     .content {
       margin-left: 270px;
       width: calc(100% - 270px);
@@ -125,6 +120,31 @@
     .visible-btn {
       display: inline-block !important;
     }
+
+    #error {
+      color: red;
+      display: none;
+    }
+
+    .admin-panel {
+      display: none;
+      margin: 20px;
+      padding: 20px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      box-shadow: 0 0 10px gold;
+    }
+
+    .admin-glow {
+      animation: glow 2s infinite alternate;
+      color: gold;
+      text-shadow: 0 0 10px gold, 0 0 20px orange;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px gold; }
+      to { text-shadow: 0 0 30px orange; }
+    }
   </style>
 </head>
 <body>
@@ -137,27 +157,29 @@
   </div>
 
   <div class="content">
-    <div class="header">shokari Bench PC Game Store</div>
+    <div class="header">🎮SHOKARI BENCH PC GAME STORE</div>
 
-    <!-- Login Box -->
     <div class="login-box" id="loginBox">
       <h2>Sign In</h2>
       <input type="text" id="nameInput" placeholder="Enter Name">
       <input type="number" id="idInput" placeholder="Enter ID">
       <br />
       <button onclick="login()">Sign In</button>
-      <p id="error" style="color:red;display:none;">Invalid name or ID</p>
+      <p id="error">Invalid name or ID</p>
     </div>
 
-    <!-- Game List -->
     <div class="games" id="gameSection" style="display:none;">
+      <div class="admin-panel" id="adminPanel">
+        <h3 class="admin-glow">👑 Admin Panel</h3>
+        <p>Future tools will appear here...</p>
+      </div>
 
-      <div class="game-block"><h3>Call of Duty</h3><a href="https://likeit.guru/action/call-of-duty" target="_blank"><button>Download</button></a></div>
-      <div class="game-block"><h3>Call of Duty 2</h3><a href="https://likeit.guru/action/call-of-duty-2" target="_blank"><button>Download</button></a></div>
-      <div class="game-block"><h3>GTA Vice City</h3><a href="https://likeit.guru/action/gta-vice-city" target="_blank"><button>Download</button></a></div>
-      <div class="game-block"><h3>GTA 3</h3><a href="https://likeit.guru/action/grand-theft-auto-3" target="_blank"><button>Download</button></a></div>
       <div class="game-block"><h3>GTA V</h3><a href="https://likeit.guru/adventure/gta-v" target="_blank"><button>Download</button></a></div>
       <div class="game-block"><h3>Minecraft</h3><a href="https://likeit.guru/sandbox/minecraft" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Call of Duty</h3><a href="https://likeit.guru/action/call-of-duty" target="_blank"><button>Download</button></a></div>
+       <div class="game-block"><h3>Call of Duty 2</h3><a href="https://likeit.guru/action/call-of-duty-2" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>GTA Vice City</h3><a href="https://likeit.guru/action/gta-vice-city" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>GTA 3</h3><a href="https://likeit.guru/action/grand-theft-auto-3" target="_blank"><button>Download</button></a></div>
       <div class="game-block"><h3>Kill It With Fire</h3><a href="https://likeit.guru/action/kill-it-with-fire" target="_blank"><button>Download</button></a></div>
       <div class="game-block"><h3>Project Nimbus: Complete Edition</h3><a href="https://likeit.guru/action/project-nimbus-complete-edition" target="_blank"><button>Download</button></a></div>
       <div class="game-block"><h3>X3: Terran War Pack</h3><a href="https://likeit.guru/strategy/x3-terran-war-pack" target="_blank"><button>Download</button></a></div>
@@ -182,13 +204,14 @@
       <div class="game-block"><h3>Cargo: The Quest for Gravity</h3><a href="https://likeit.guru/action/cargo-the-quest-for-gravity" target="_blank"><button>Download</button></a></div>
       <div class="game-block"><h3>Flactured State</h3><a href="https://likeit.guru/indi/flactured-state" target="_blank"><button>Download</button></a></div>
       <div class="game-block"><h3>Twin Mirror</h3><a href="https://likeit.guru/action/twin-mirror" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>GTA IV</h3><a href="https://likeit.guru/action/gta-4" target="blank"><button>download</button></a></div>
 
     </div>
   </div>
 
   <script>
     const users = {
-      "oasama": "2000405",
+      "osama": "2006405",
       "nahian": "2894365",
       "muide": "3008976",
       "fahad": "2100789",
@@ -198,32 +221,43 @@
       "sabit": "2000000"
     };
 
-    function login() {
-      const name = document.getElementById("nameInput").value.trim().toLowerCase();
-      const id = document.getElementById("idInput").value.trim();
-      const error = document.getElementById("error");
-      const gameSection = document.getElementById("gameSection");
-      const loginBox = document.getElementById("loginBox");
-      const userName = document.getElementById("userName");
-      const userId = document.getElementById("userId");
-      const userRole = document.getElementById("userRole");
+    function normalize(str) {
+      return str.toLowerCase().replace(/\s+/g, '');
+    }
 
-      if (users[name] && users[name] === id) {
-        error.style.display = "none";
-        loginBox.style.display = "none";
-        gameSection.style.display = "grid";
+    function login() {
+      const rawName = document.getElementById("nameInput").value.trim();
+      const id = document.getElementById("idInput").value.trim();
+      const name = normalize(rawName);
+
+      const normalizedUsers = {};
+      Object.keys(users).forEach(key => {
+        normalizedUsers[normalize(key)] = users[key];
+      });
+
+      if (normalizedUsers[name] && normalizedUsers[name] === id) {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("gameSection").style.display = "grid";
 
         const role = name === "sabit" ? "Owner" : "Member";
 
-        userName.textContent = name.toUpperCase();
-        userId.textContent = id;
-        userRole.textContent = role;
+        document.getElementById("userName").textContent = rawName.toUpperCase();
+        document.getElementById("userId").textContent = id;
+        document.getElementById("userRole").textContent = role;
 
-        document.querySelectorAll(".game-block a button").forEach(btn => btn.classList.add("visible-btn"));
+        document.querySelectorAll(".game-block a button").forEach(btn => {
+          btn.classList.add("visible-btn");
+        });
+
+        if (role === "Owner") {
+          document.getElementById("adminPanel").style.display = "block";
+        }
+
       } else {
-        error.style.display = "block";
+        document.getElementById("error").style.display = "block";
       }
     }
   </script>
+
 </body>
 </html>
