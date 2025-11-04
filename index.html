@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>shorkari Bench PC Game Store</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: white;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background: #111;
+      height: 100vh;
+      padding: 20px;
+      box-shadow: 2px 0 10px rgba(0, 255, 255, 0.2);
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+
+    .sidebar h2 {
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff;
+    }
+
+    .sidebar p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    /* Header */
+    .header {
+      width: 100%;
+      text-align: center;
+      background: #000;
+      padding: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      animation: rgbGlow 3s infinite linear;
+      text-transform: uppercase;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    @keyframes rgbGlow {
+      0% { color: red; }
+      25% { color: lime; }
+      50% { color: cyan; }
+      75% { color: violet; }
+      100% { color: red; }
+    }
+
+    /* Login Box */
+    .login-box {
+      margin: auto;
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 150px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      width: 200px;
+      text-align: center;
+    }
+
+    button {
+      background: linear-gradient(90deg, cyan, magenta);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Main content */
+    .content {
+      margin-left: 270px;
+      width: calc(100% - 270px);
+      text-align: center;
+    }
+
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .game-block {
+      background: #111;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,255,255,0.2);
+      transition: 0.3s;
+    }
+
+    .game-block:hover {
+      transform: scale(1.05);
+      background: #222;
+    }
+
+    .game-block h3 {
+      color: cyan;
+    }
+
+    .game-block a button {
+      display: none;
+    }
+
+    .visible-btn {
+      display: inline-block !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar" id="sidebar">
+    <h2>User Info</h2>
+    <p>Name: <span id="userName">-</span></p>
+    <p>ID: <span id="userId">-</span></p>
+    <p>Position: <span id="userRole">-</span></p>
+  </div>
+
+  <div class="content">
+    <div class="header">shokari Bench PC Game Store</div>
+
+    <!-- Login Box -->
+    <div class="login-box" id="loginBox">
+      <h2>Sign In</h2>
+      <input type="text" id="nameInput" placeholder="Enter Name">
+      <input type="number" id="idInput" placeholder="Enter ID">
+      <br />
+      <button onclick="login()">Sign In</button>
+      <p id="error" style="color:red;display:none;">Invalid name or ID</p>
+    </div>
+
+    <!-- Game List -->
+    <div class="games" id="gameSection" style="display:none;">
+
+      <div class="game-block"><h3>Call of Duty</h3><a href="https://likeit.guru/action/call-of-duty" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Call of Duty 2</h3><a href="https://likeit.guru/action/call-of-duty-2" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>GTA Vice City</h3><a href="https://likeit.guru/action/gta-vice-city" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>GTA 3</h3><a href="https://likeit.guru/action/grand-theft-auto-3" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>GTA V</h3><a href="https://likeit.guru/adventure/gta-v" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Minecraft</h3><a href="https://likeit.guru/sandbox/minecraft" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Kill It With Fire</h3><a href="https://likeit.guru/action/kill-it-with-fire" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Project Nimbus: Complete Edition</h3><a href="https://likeit.guru/action/project-nimbus-complete-edition" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>X3: Terran War Pack</h3><a href="https://likeit.guru/strategy/x3-terran-war-pack" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Sword and Adventurer</h3><a href="https://likeit.guru/action/sword-and-adventurer" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Test Tube Titans: Taster Trial</h3><a href="https://likeit.guru/action/test-tube-titans-taster-trial" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Koi to Senkyo to Chocolate</h3><a href="https://likeit.guru/adventure/koi-to-senkyo-to-chocolate" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Galactic Civilizations II: Ultimate Edition</h3><a href="https://likeit.guru/adventure/galactic-civilizations-2-ultimate-edition" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Dorfromantik</h3><a href="https://likeit.guru/indi/dorfromantik" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Warhammer 40,000: Sanctus Reach</h3><a href="https://likeit.guru/strategy/warhammer-40-000-sanctus-reach" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Wind Peaks</h3><a href="https://likeit.guru/adventure/wind-peaks" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Awesomenauts: The 2D MOBA</h3><a href="https://likeit.guru/action/awesomenauts-the-2d-moba" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Miss Neko</h3><a href="https://likeit.guru/action/miss-neko" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Omnibus</h3><a href="https://likeit.guru/action/omnibus" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Sea Legends</h3><a href="https://likeit.guru/action/sea-legends-game" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Stellar Interface</h3><a href="https://likeit.guru/action/stellar-interface" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Block Warriors</h3><a href="https://likeit.guru/action/block-warriors" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Lego Racers 2</h3><a href="https://likeit.guru/sport/lego-racers-2" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Nosferatu’s Butler</h3><a href="https://likeit.guru/adventure/nosferatus-butler" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Innocent Witches</h3><a href="https://likeit.guru/adventure/innocent-witches" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Silent Descent</h3><a href="https://likeit.guru/action/silent-descent" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Mulaka</h3><a href="https://likeit.guru/action/mulaka" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Cargo: The Quest for Gravity</h3><a href="https://likeit.guru/action/cargo-the-quest-for-gravity" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Flactured State</h3><a href="https://likeit.guru/indi/flactured-state" target="_blank"><button>Download</button></a></div>
+      <div class="game-block"><h3>Twin Mirror</h3><a href="https://likeit.guru/action/twin-mirror" target="_blank"><button>Download</button></a></div>
+
+    </div>
+  </div>
+
+  <script>
+    const users = {
+      "oasama": "2000405",
+      "nahian": "2894365",
+      "muide": "3008976",
+      "fahad": "2100789",
+      "minhaz": "456789",
+      "rafi 1": "3000172",
+      "rafi 2": "4000876",
+      "sabit": "2000000"
+    };
+
+    function login() {
+      const name = document.getElementById("nameInput").value.trim().toLowerCase();
+      const id = document.getElementById("idInput").value.trim();
+      const error = document.getElementById("error");
+      const gameSection = document.getElementById("gameSection");
+      const loginBox = document.getElementById("loginBox");
+      const userName = document.getElementById("userName");
+      const userId = document.getElementById("userId");
+      const userRole = document.getElementById("userRole");
+
+      if (users[name] && users[name] === id) {
+        error.style.display = "none";
+        loginBox.style.display = "none";
+        gameSection.style.display = "grid";
+
+        const role = name === "sabit" ? "Owner" : "Member";
+
+        userName.textContent = name.toUpperCase();
+        userId.textContent = id;
+        userRole.textContent = role;
+
+        document.querySelectorAll(".game-block a button").forEach(btn => btn.classList.add("visible-btn"));
+      } else {
+        error.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
